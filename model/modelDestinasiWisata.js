@@ -25,5 +25,5 @@ const DestinasiWisataSchema = new mongoose.Schema(
     }
 )
 
-const modelDestinasiWisata = new mongoose.model("destinasi_wisata", DestinasiWisataSchema)
-export default modelDestinasiWisata
+const modelDestinasiWisata = new mongoose.model("destinasi_wisata", DestinasiWisataSchema);
+export default modelDestinasiWisata;
