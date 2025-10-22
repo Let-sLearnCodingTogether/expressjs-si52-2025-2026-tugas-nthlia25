@@ -1,4 +1,5 @@
 import express from "express";
+// import { database } from "./config/database.js"
 
 const app = express()
 app.use(express.json())
