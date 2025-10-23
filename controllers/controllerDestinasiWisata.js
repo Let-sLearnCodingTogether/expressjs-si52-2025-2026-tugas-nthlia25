@@ -1,5 +1,5 @@
 import { model } from "mongoose";
-import modelDestinasiWisata from "../model/modelDestinasiWisata";
+import modelDestinasiWisata from "../model/modelDestinasiWisata.js"
 
 export const listDestinasiWisata = async (req, res) => {
     try{

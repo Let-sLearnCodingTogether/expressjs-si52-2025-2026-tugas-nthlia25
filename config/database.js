@@ -4,7 +4,7 @@ const database = async () => {
     try{
         console.log("Melakukan koneksi ke mongodb")
 
-       const response = await mongoose.connect("mongodb://127.0.0.1:27017/wisata?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8")
+       const response = await mongoose.connect("mongodb://127.0.0.1:27017/wisata1?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8")
 
        console.log(`Koneksi ke mongodb berhasil host : ${response.connection.host}`);
     } catch (error) {
