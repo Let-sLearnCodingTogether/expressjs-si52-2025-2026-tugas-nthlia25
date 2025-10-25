@@ -14,20 +14,46 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
-						]
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"nathaliamargaretha2\",\r\n    \"email\" : \"nathalia2@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
 			},
@@ -39,22 +65,30 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 							"});",
 							""
-						]
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n    \"username\" : \"nathaliamargaretha2\",\n    \"email\" : \"nathalia2@gmail.com\",\n    \"password\" : \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +96,16 @@
 					}
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
 				},
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
 			},
@@ -162,7 +205,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/destinasi_wisata/68fa4ecf1934b1cd4c08ebd0",
+					"raw": "http://localhost:3000/api/destinasi_wisata/68fcf68e2481a852ac1d2d45",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -171,7 +214,7 @@
 					"path": [
 						"api",
 						"destinasi_wisata",
-						"68fa4ecf1934b1cd4c08ebd0"
+						"68fcf68e2481a852ac1d2d45"
 					]
 				}
 			},
@@ -190,7 +233,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"destination\": \"Eiffel Tower\",\r\n    \"country\": \"Paris, France\",\r\n    \"reason\": \"Icon of Paris, Locals Favorite's Place\"\r\n}",
+					"raw": "{\r\n\t\"destination\": \"Eiffel Tower\",\r\n    \"country\": \"Paris, France\",\r\n    \"reason\": \"Icon of Paris\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,7 +241,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/destinasi_wisata/68fa4ecf1934b1cd4c08ebd0",
+					"raw": "http://localhost:3000/api/destinasi_wisata/68fcf68e2481a852ac1d2d45",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -207,7 +250,50 @@
 					"path": [
 						"api",
 						"destinasi_wisata",
-						"68fa4ecf1934b1cd4c08ebd0"
+						"68fcf68e2481a852ac1d2d45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGhhbGlhbWFyZ2FyZXRoYTIiLCJlbWFpbCI6Im5hdGhhbGlhMkBnbWFpbC5jb20iLCJpYXQiOjE3NjE0MDkxNjEsImV4cCI6MTc2MTQxMjc2MX0.emQQ8_MjEa-R5aKxW2vufu57c1IBUVw6RAX8ajn5x80",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"nathaliamargaretha1\",\r\n    \"email\" : \"nathalia1@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"me"
 					]
 				}
 			},
