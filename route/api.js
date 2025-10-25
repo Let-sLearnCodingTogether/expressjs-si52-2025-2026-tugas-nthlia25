@@ -6,8 +6,8 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const api = express.Router()
 
-api.post('/User', authController.register);
-api.post('/User', authController.login);
+api.post('/register', authController.register);
+api.post('/login', authController.login);
 
 api.post("/destinasi_wisata", controllerDestinasiWisata.createNewDestinasiWisata)
 api.get("/destinasi_wisata", controllerDestinasiWisata.listDestinasiWisata)
