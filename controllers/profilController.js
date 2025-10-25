@@ -9,9 +9,11 @@ const username = req.params.username
 
 export const privateProfile = async (req, res) => {
     try {
+        const user = req.user;
+
         res.status(200).json({
             message: "Private profile berhasil di akses",
-            data: null,
+            data: user,
         });
         
     } catch (error) {
