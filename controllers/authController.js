@@ -1,11 +1,11 @@
 // import { compare } from "bcrypt";
-import UserModel from "../models/userModel.js";
-import { compare, hash } from "../utils/hashUtil.js";
+import UserModel from "../model/userModel.js"; 
+import { compare, hash } from "../utils/hashUtils.js";
 import { jwtSignUtil } from "../utils/jwtSignUtil.js";
 
 export const register = async (req, res) => {
     try {
-        //Untuk mengambil body atau data dari request
+
         const registerData = req.body
 
         console.log(registerData);
@@ -36,14 +36,12 @@ export const login = async(req, res) => {
     try{
         const loginData = req.body
 
-        //mencari user berdasarkan email
         const user = await UserModel.findOne({
             email : loginData.email
 
         })
 
 
-        //Jika user tidak ditemukan
         if (!user){
             res.status(404).json({
                 message : "User not found",
@@ -51,14 +49,13 @@ export const login = async(req, res) => {
             })
         }
 
-        //membandingkan password yang ada di dalam db dengan request
         if(compare(loginData.password, user.password)){
             return res.status(200).json({
                 message: "Login berhasil",
                 data : {
                     username : user.username,
                     email : user.email,
-                    token : jwtSignUtil(user) //Melakukan sign JWT token
+                    token : jwtSignUtil(user) 
                 }
             })
         }
